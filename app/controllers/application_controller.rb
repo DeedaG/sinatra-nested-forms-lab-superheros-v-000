@@ -14,9 +14,9 @@ class App < Sinatra::Base
 
     post '/teams' do
       @team = Team.new(params[:team][:name], params[:team][:motto])
-      member = params[:team][:members]
+      
 
-      @members = member.collect do |member|
+      @members = Member.all.collect do |member|
         member
       end
 
